@@ -125,10 +125,7 @@ class UserPlugin(object):
 
         site_data = self.getSiteData(address)
 
-        if site_data.get("cert"):  # Different privatekey for different cert provider
-            index = param_index + self.getAddressAuthIndex(site_data["cert"])
-        else:
-            index = param_index
+        index = param_index
 
         if "encrypt_privatekey_%s" % index not in site_data:
             address_index = self.getAddressAuthIndex(address)
@@ -143,10 +140,7 @@ class UserPlugin(object):
 
         site_data = self.getSiteData(address)
 
-        if site_data.get("cert"):  # Different privatekey for different cert provider
-            index = param_index + self.getAddressAuthIndex(site_data["cert"])
-        else:
-            index = param_index
+        index = param_index
 
         if "encrypt_publickey_%s" % index not in site_data:
             privatekey = self.getEncryptPrivatekey(address, param_index).encode()
